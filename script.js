@@ -14,7 +14,11 @@ const backgroundLevel1 = new Sprite({
     y: 0,
   }
 });
-const player = new Player();
+
+const player = new Player({
+  collisionBlocks,
+});
+
 const keys = {
   w: {
     pressed: false,
