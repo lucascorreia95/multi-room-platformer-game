@@ -1,11 +1,17 @@
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext('2d');
 
-canvas.width = 64 * 16
-canvas.height = 64 * 9
+canvas.width = 64 * 16;
+canvas.height = 64 * 9;
 
+const backgroundLevel1 = new Sprite({
+  imageSrc: './img/backgroundLevel1.png',
+  position: {
+    x: 0,
+    y: 0,
+  }
+});
 const player = new Player();
-
 const keys = {
   w: {
     pressed: false,
@@ -20,9 +26,7 @@ const keys = {
 
 function animate() {
   window.requestAnimationFrame(animate);
-
-  c.fillStyle = 'white';
-  c.fillRect(0, 0, canvas.width, canvas.height);
+  backgroundLevel1.draw();
 
   player.velocity.x = 0;
 
