@@ -89,6 +89,10 @@ let levels = {
       player.position.x = 750;
       player.position.y = 100;
 
+      if (player.currentAnimation) {
+        player.currentAnimation.isActive = false;
+      };
+
       background = new Sprite({
         imageSrc: './img/backgroundLevel3.png',
         position: {
@@ -168,7 +172,7 @@ const player = new Player({
           opacity: 1,
           onComplete: () => {
             level++;
-            
+
             if (level === 4) {
               level = 1;
             };
@@ -176,6 +180,7 @@ const player = new Player({
             levels[level].init();
             player.switchSprite('idleRight');
             player.preventInput = false;
+
             gsap.to(overlay, {
               opacity: 0,
             });
